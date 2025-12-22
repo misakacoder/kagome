@@ -5,30 +5,30 @@ import (
 	"strings"
 )
 
-type joiner struct {
+type Joiner struct {
 	delimiter string
 	prefix    string
 	suffix    string
 	data      []string
 }
 
-func (joiner *joiner) Append(data string) *joiner {
+func (joiner *Joiner) Append(data string) *Joiner {
 	if data != "" {
 		joiner.data = append(joiner.data, data)
 	}
 	return joiner
 }
 
-func (joiner *joiner) Size() int {
+func (joiner *Joiner) Size() int {
 	return len(joiner.data)
 }
 
-func (joiner *joiner) String() string {
+func (joiner *Joiner) String() string {
 	return fmt.Sprintf("%s%s%s", joiner.prefix, strings.Join(joiner.data, joiner.delimiter), joiner.suffix)
 }
 
-func NewJoiner(delimiter, prefix, suffix string) *joiner {
-	return &joiner{
+func NewJoiner(delimiter, prefix, suffix string) *Joiner {
+	return &Joiner{
 		delimiter: delimiter,
 		prefix:    prefix,
 		suffix:    suffix,
