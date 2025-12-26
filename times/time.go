@@ -10,27 +10,27 @@ var (
 	Day   DateField = [3]int{0, 0, 1}
 )
 
-func YearStart(tm time.Time) time.Time {
+func YearBeginning(tm time.Time) time.Time {
 	return time.Date(tm.Year(), 1, 1, 0, 0, 0, 0, tm.Location())
 }
 
-func YearEnd(tm time.Time) time.Time {
+func YearEnding(tm time.Time) time.Time {
 	return time.Date(tm.Year(), 12, 31, 23, 59, 59, 999999999, tm.Location())
 }
 
-func MonthStart(tm time.Time) time.Time {
+func MonthBeginning(tm time.Time) time.Time {
 	return time.Date(tm.Year(), tm.Month(), 1, 0, 0, 0, 0, tm.Location())
 }
 
-func MonthEnd(tm time.Time) time.Time {
+func MonthEnding(tm time.Time) time.Time {
 	return time.Date(tm.Year(), tm.Month()+1, 1, 0, 0, 0, 0, tm.Location()).Add(-time.Nanosecond)
 }
 
-func DayStart(tm time.Time) time.Time {
+func DayBeginning(tm time.Time) time.Time {
 	return time.Date(tm.Year(), tm.Month(), tm.Day(), 0, 0, 0, 0, tm.Location())
 }
 
-func DayEnd(tm time.Time) time.Time {
+func DayEnding(tm time.Time) time.Time {
 	return time.Date(tm.Year(), tm.Month(), tm.Day(), 23, 59, 59, 999999999, tm.Location())
 }
 
